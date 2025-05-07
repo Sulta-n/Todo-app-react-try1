@@ -1,11 +1,10 @@
 import React from "react";
-import TodoInputs from "./components/TodoInputs";
+import TodoLists from "./components/TodoLists";
 
 const App = () => {
   return (
     <div>
-      Things To Do!
-      <TodoInputs />
+      <TodoLists />
     </div>
   );
 };
