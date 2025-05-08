@@ -3,6 +3,8 @@ import TodoInputs from "./TodoInputs";
 import { useState } from "react";
 import { MdDeleteForever } from "react-icons/md";
 import { FiEdit } from "react-icons/fi";
+import ICON from "../images/icon.png";
+import "./todo.css";
 
 const TodoLists = () => {
   const [todos, setTodos] = useState(() => {
@@ -39,19 +41,29 @@ const TodoLists = () => {
   };
 
   return (
-    <div>
-      Things To Do!
-      <TodoInputs addTodo={addTodo} edit={edit} updateTodo={updateTodo} />
-      <ul>
-        {todos.map((todo) => (
-          <div key={todo.id}>
-            <h4>{todo.text}</h4>
-            <FiEdit onClick={() => editTodo(todo)} />
-            <MdDeleteForever onClick={() => removeTodo(todo.id)} />
-          </div>
-        ))}
-      </ul>
-    </div>
+    <section className="todo-body">
+      <div className="todo-card">
+        <div className="header">
+          <h1>Things To Do!</h1>
+          <img src={ICON} alt="icon image" />
+        </div>
+        <TodoInputs addTodo={addTodo} edit={edit} updateTodo={updateTodo} />
+        <ul className="lists">
+          {todos.map((todo) => (
+            <li key={todo.id} className="todo-item">
+              <h4 className="todo-text">{todo.text}</h4>
+              <div className="action-buttons">
+                <FiEdit onClick={() => editTodo(todo)} className="editBtn" />
+                <MdDeleteForever
+                  onClick={() => removeTodo(todo.id)}
+                  className="deleteBtn"
+                />
+              </div>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
   );
 };
 

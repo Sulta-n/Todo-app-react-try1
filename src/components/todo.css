@@ -1,0 +1,135 @@
+:root {
+  --container: #007bb8;
+  --h-text: #0a0d22;
+  --p-text: #d77372;
+  --checked: #c0562d;
+}
+
+.todo-body {
+  background-image: url(../images/jjk-yuji-cool.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-blend-mode: darken;
+  background-attachment: fixed;
+  padding: 10px;
+  height: 100vh;
+}
+
+.todo-card {
+  background: var(--container);
+  width: 100%;
+  max-width: 440px;
+  margin: 100px auto 20px;
+  padding: 20px 15px;
+  border-radius: 30px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.header h1 {
+  color: var(--h-text);
+  font-size: 3rem;
+  font-weight: 500;
+}
+
+.header img {
+  width: 4rem;
+}
+
+form {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #ffae988b;
+  padding: 10px 15px;
+  border-radius: 1.5rem;
+  margin-bottom: 1rem;
+  width: 100%;
+}
+
+form input {
+  border: none;
+  outline: none;
+  flex: 1;
+  padding: 6px;
+  background: transparent !important;
+  color: var(--h-text);
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+form button {
+  background-color: #ff958b;
+  padding: 10px 15px;
+  border-radius: 15px;
+  border: none;
+  outline: none;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.1rem;
+}
+
+.todo-card .lists {
+  width: 100%;
+}
+
+.todo-card .lists li {
+  list-style: none;
+  margin: 0.8rem 1rem;
+  font-size: 1.3rem;
+  color: var(--h-text);
+  font-weight: 600;
+  margin-left: 1.7rem;
+  user-select: none;
+  cursor: pointer;
+}
+
+.todo-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #ffae988b;
+  padding: 10px 12px;
+  border-radius: 10px;
+  gap: 0.8rem;
+}
+
+.todo-text {
+  flex: 1;
+  word-wrap: break-word;
+  white-space: normal;
+  overflow-wrap: break-word;
+  max-width: 70%;
+}
+
+.action-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.7rem;
+  font-size: 1.5rem;
+  margin-left: 6px;
+  flex-shrink: 0;
+}
+
+.editBtn,
+.deleteBtn {
+  color: var(--h-text);
+  transition: 0.5s ease-in-out;
+}
+
+.editBtn:hover {
+  color: #fff;
+}
+
+.deleteBtn:hover {
+  color: rgba(205, 32, 32, 0.871);
+}
