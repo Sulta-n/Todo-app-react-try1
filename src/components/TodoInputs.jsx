@@ -33,7 +33,11 @@ const TodoInputs = ({ addTodo, edit, updateTodo }) => {
     if (edit.id !== null) {
       updateTodo(edit.id, input);
     } else {
-      const newTodo = { id: Math.floor(Math.random() * 1000), text: input };
+      const newTodo = {
+        id: Math.floor(Math.random() * 1000),
+        text: input,
+        completed: false,
+      };
 
       addTodo(newTodo);
     }

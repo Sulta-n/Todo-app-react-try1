@@ -100,6 +100,13 @@ form button {
   padding: 10px 12px;
   border-radius: 10px;
   gap: 0.8rem;
+  transition: 0.5s ease;
+}
+
+.completed {
+  text-decoration: line-through;
+  background-color: #70473ca6;
+  color: rgb(255, 255, 255);
 }
 
 .todo-text {

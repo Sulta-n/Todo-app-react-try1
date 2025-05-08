@@ -40,6 +40,14 @@ const TodoLists = () => {
     setTodos(todos.filter((todo) => todo.id !== taskToRemove));
   };
 
+  const toggleComplete = (todoId) => {
+    setTodos(
+      todos.map((todo) =>
+        todo.id === todoId ? { ...todo, completed: !todo.completed } : todo
+      )
+    );
+  };
+
   return (
     <section className="todo-body">
       <div className="todo-card">
@@ -50,7 +58,11 @@ const TodoLists = () => {
         <TodoInputs addTodo={addTodo} edit={edit} updateTodo={updateTodo} />
         <ul className="lists">
           {todos.map((todo) => (
-            <li key={todo.id} className="todo-item">
+            <li
+              key={todo.id}
+              className={`todo-item ${todo.completed ? "completed" : ""}`}
+              onClick={() => toggleComplete(todo.id)}
+            >
               <h4 className="todo-text">{todo.text}</h4>
               <div className="action-buttons">
                 <FiEdit onClick={() => editTodo(todo)} className="editBtn" />
