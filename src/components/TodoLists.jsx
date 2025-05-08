@@ -19,7 +19,7 @@ const TodoLists = () => {
   }, [todos]);
 
   const addTodo = (task) => {
-    setTodos((prevTodo) => [...prevTodo, task]);
+    setTodos((prevTodo) => [task, ...prevTodo]);
     console.log("Todo:", todos);
   };
 
@@ -37,7 +37,15 @@ const TodoLists = () => {
   };
 
   const removeTodo = (taskToRemove) => {
-    setTodos(todos.filter((todo) => todo.id !== taskToRemove));
+    const element = document.getElementById(taskToRemove);
+
+    if (element) {
+      element.classList.add("fade-out");
+
+      setTimeout(() => {
+        setTodos(todos.filter((todo) => todo.id !== taskToRemove));
+      }, 300);
+    }
   };
 
   const toggleComplete = (todoId) => {
@@ -60,10 +68,12 @@ const TodoLists = () => {
           {todos.map((todo) => (
             <li
               key={todo.id}
+              id={todo.id}
               className={`todo-item ${todo.completed ? "completed" : ""}`}
-              onClick={() => toggleComplete(todo.id)}
             >
-              <h4 className="todo-text">{todo.text}</h4>
+              <h4 className="todo-text" onClick={() => toggleComplete(todo.id)}>
+                {todo.text}
+              </h4>
               <div className="action-buttons">
                 <FiEdit onClick={() => editTodo(todo)} className="editBtn" />
                 <MdDeleteForever
@@ -74,6 +84,7 @@ const TodoLists = () => {
             </li>
           ))}
         </ul>
+        <small>&copy; Phantom All Rights Reserved.</small>
       </div>
     </section>
   );

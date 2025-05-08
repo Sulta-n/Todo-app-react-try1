@@ -21,15 +21,16 @@
   width: 100%;
   max-width: 440px;
   margin: 100px auto 20px;
-  padding: 20px 15px;
+  padding: 20px 15px 40px;
   border-radius: 30px;
+  height: 80vh;
 }
 
 .header {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 1rem;
+  gap: 0.5rem;
   margin-bottom: 2rem;
 }
 
@@ -65,6 +66,11 @@ form input {
   font-weight: 500;
 }
 
+form input::placeholder {
+  color: #ffffff72;
+  font-size: 1.2rem;
+}
+
 form button {
   background-color: #ff958b;
   padding: 10px 15px;
@@ -79,6 +85,15 @@ form button {
 
 .todo-card .lists {
   width: 100%;
+}
+
+.lists {
+  overflow-y: scroll;
+  height: 70%;
+}
+
+.lists::-webkit-scrollbar {
+  background: transparent;
 }
 
 .todo-card .lists li {
@@ -101,12 +116,45 @@ form button {
   border-radius: 10px;
   gap: 0.8rem;
   transition: 0.5s ease;
+  opacity: 0;
+  transform: translateY(-10px);
+  animation: fadeSlide 0.4s ease-in-out forwards;
+}
+
+@keyframes fadeSlide {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .completed {
   text-decoration: line-through;
   background-color: #70473ca6;
   color: rgb(255, 255, 255);
+}
+
+.completed::before {
+  content: "✔";
+  color: var(--p-text);
+  font-size: 1.5rem;
+  animation: checkSlide 0.4s ease-in-out;
+  display: inline-block;
+}
+
+@keyframes checkSlide {
+  from {
+    transform: translateX(-10px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
 }
 
 .todo-text {
@@ -139,4 +187,27 @@ form button {
 
 .deleteBtn:hover {
   color: rgba(205, 32, 32, 0.871);
+}
+
+.fade-out {
+  opacity: 1;
+  transform: translateY(0);
+  animation: downSlide 0.4s ease-in-out forwards;
+}
+
+@keyframes downSlide {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+}
+
+small {
+  display: grid;
+  place-items: center;
+  color: #ffffff9b;
 }
